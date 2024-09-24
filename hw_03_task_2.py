@@ -1,7 +1,5 @@
 import random
 
-
-
 def get_numbers_ticket(min:int, max:int, quantity:int) -> int:
     list_of_numbers = []
     if max - min > quantity:         
