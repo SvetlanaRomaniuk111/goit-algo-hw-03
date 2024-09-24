@@ -1,9 +1,17 @@
 import random
 
-def get_numbers_ticket(min, max, quantity):
-    return random.sample(range(min, max), quantity)
 
-numbers_1 = get_numbers_ticket(1, 49, 6)
-numbers_2 = get_numbers_ticket(1, 36, 5)
-print(f'Six random numbers: {numbers_1}')
-print(f'Five random numbers: {numbers_2}')
+
+def get_numbers_ticket(min:int, max:int, quantity:int) -> int:
+    list_of_numbers = []
+    if max - min > quantity:         
+        list_of_numbers = random.sample(range(min, max), quantity)
+        return sorted(list_of_numbers)
+    if max - min < quantity or max < min:         
+        return list_of_numbers 
+    
+print(get_numbers_ticket(1, 49, 6))
+print(get_numbers_ticket(1, 36, 5))
+print(get_numbers_ticket(10, 4, 2))
+print(get_numbers_ticket(10, 15, 9))
+print(get_numbers_ticket(-10, 5, 20))

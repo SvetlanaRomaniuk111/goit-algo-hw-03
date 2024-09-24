@@ -13,13 +13,12 @@ raw_numbers = [
 ]
 
 def normalize_phone(phone_number):
-    for phone_number in raw_numbers:
-        cleaned_number = re.sub(r'[^0-9\^+]', '', phone_number)
-        if not cleaned_number.startswith('+'):
-            if cleaned_number.startswith('380'):
-                cleaned_number = '+' + cleaned_number 
-            else:
-                cleaned_number = '+38' + cleaned_number 
+    cleaned_number = re.sub(r'[^0-9\^+]', '', phone_number)
+    if not cleaned_number.startswith('+'):
+        if cleaned_number.startswith('380'):
+            cleaned_number = '+' + cleaned_number 
+        else:
+            cleaned_number = '+38' + cleaned_number 
     return cleaned_number
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
